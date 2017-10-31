@@ -1,6 +1,11 @@
 Changelog
 =========
 
+1.13.ls1 (18.11.2017)
+~~~~~~~~~~~~~~~~~~~
+* The page chooser now searches all fields of a page, instead of just the title (Bertrand Bordage)
+
+
 1.13.1 (17.11.2017)
 ~~~~~~~~~~~~~~~~~~~
 
