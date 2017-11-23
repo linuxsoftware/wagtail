@@ -13,7 +13,8 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('taggit', '0001_initial'),
-        migrations.swappable_dependency(settings.AUTH_USER_MODEL),
+        ('auth', '0001_initial'), #DJM
+        #migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
