@@ -1693,6 +1693,9 @@ class PagePermissionTester(object):
             return True
         if 'add' not in self.permissions:
             return False
+        if 'edit' in self.permissions:
+            # allow editors to add subpages
+            return True
         if getattr(specific_class, "owner_subpages_only", False):
             return self.user == self.page.owner
         return True
