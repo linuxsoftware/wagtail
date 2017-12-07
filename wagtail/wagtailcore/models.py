@@ -1689,7 +1689,16 @@ class PagePermissionTester(object):
         specific_class = self.page.specific_class
         if specific_class is None or not specific_class.creatable_subpage_models():
             return False
-        return self.user.is_superuser or ('add' in self.permissions)
+        if self.user.is_superuser:
+            return True
+        if 'add' not in self.permissions:
+            return False
+        if getattr(specific_class, "owner_subpages_only", False):
+            return self.user == self.page.owner
+        return True
+#DJM!!!
+# TODO: Do a proper hotfix/patch
+#        return self.user.is_superuser or ('add' in self.permissions)
 
     def can_edit(self):
         if not self.user.is_active:
